@@ -1,0 +1,7 @@
+C:\Users\thieril\AppData\Local\Temporary Projects\Order\bin\Debug\Order.exe
+C:\Users\thieril\AppData\Local\Temporary Projects\Order\bin\Debug\Order.pdb
+C:\Users\thieril\AppData\Local\Temporary Projects\Order\obj\x86\Debug\Order.Order.resources
+C:\Users\thieril\AppData\Local\Temporary Projects\Order\obj\x86\Debug\Order.Properties.Resources.resources
+C:\Users\thieril\AppData\Local\Temporary Projects\Order\obj\x86\Debug\Order.csproj.GenerateResource.Cache
+C:\Users\thieril\AppData\Local\Temporary Projects\Order\obj\x86\Debug\Order.exe
+C:\Users\thieril\AppData\Local\Temporary Projects\Order\obj\x86\Debug\Order.pdb
