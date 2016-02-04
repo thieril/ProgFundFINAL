@@ -1,0 +1,141 @@
+class burgerBuild
+
+start
+	Declarations
+		string input file newCustomerOrder
+		string bun[sesame, wheat, white]
+		string chs [american, cheddar, swiss, peperjack]
+		string meat [chicken, beef patty, veggie patty]
+		string cold [tomato, lettuce, onion]
+		string sauce [ketchup, mustard, mayo, chipotle mayo]
+		string custOrder = bun + chs + meat + cold + sauce
+		string finalBurger
+		string custBun
+		string custChs
+		string CustMeat
+		string custCold
+		string custSauce
+		
+	open input file "newCustomerOrder"
+	if want bun then
+		bunSelection()
+	else
+		want cheese
+	end if
+		
+	if want cheese then
+		chsSelection()
+	else
+		want meat
+	end if
+		
+	if want meat then
+		meatSelection()
+	else 
+		want toppping 
+	end if
+		
+	if want topping then
+		coldSelection()
+	else	
+		want sauce
+	end if
+		
+	if want sauce then
+		getSaucy()
+	else
+		reviewOrder()
+	end if
+		
+	if order review	
+		orderReview()
+	end if
+stop	
+		
+		
+	private string bunSelection()
+		string bun = [sesame, wheat, white]
+		output "Select bun, or press Next to continue."
+		bun + 1
+		input = custBun
+	return
+		
+	private string chsSelection()
+		string chs = [american, cheddar, swiss, peperjack]
+		output "Select cheese, or press Next to continue."
+		chs + 1
+		input = custChs
+	return	
+		
+	private string meatSelection()
+		string meat = [chicken, beef patty, veggie patty]
+		output "Select meat, or press Next to continue."
+		meat + 1
+		input = custMeat
+	return	
+		
+	private string coldItemSelection()
+		string cold = [tomato, lettuce, onion, pickle]
+		output "Select chilled items, or press Next to continue."
+		cold + 1
+		input = custCold
+	return	
+	
+	private string getSaucy()
+		string sauce = [ketchup, mustard, mayo, chipotle mayo]
+		output "Select sauce, or press Next to continue."
+		sauce + 1
+		input = custSauce
+	return
+	
+	private string finish()
+		close input file "newCustOrder"
+	return	
+		
+	private string orderReview()
+		if bun = custBun then
+			 if chs
+		else
+			bunSelection()
+				if chs = custChs then
+					if meat
+				else
+					chsSelection()
+						if meat = custMeat then
+							if cold
+						else
+							meatSelction()
+								if cold = custCold then
+									if sauce
+								else
+									coldSelection()
+									if sauce = custSauce then
+										custOrder = finalBurger + output
+										"Review order, if corect, press Next to complete order."
+									else
+										getSaucy()
+									end if
+								end if	
+						end if
+				end if
+		end if
+	return
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
