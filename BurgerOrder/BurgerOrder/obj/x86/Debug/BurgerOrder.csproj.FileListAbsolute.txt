@@ -7,3 +7,11 @@ C:\Users\thieril\Documents\Visual Studio 2010\Projects\BurgerOrder\BurgerOrder\o
 C:\Users\thieril\Documents\Visual Studio 2010\Projects\BurgerOrder\BurgerOrder\obj\x86\Debug\BurgerOrder.pdb
 C:\Users\thieril\Documents\GitHub\Prog-Fund-FINAL\BurgerOrder\BurgerOrder\obj\x86\Debug\BurgerOrder.exe
 C:\Users\thieril\Documents\GitHub\Prog-Fund-FINAL\BurgerOrder\BurgerOrder\obj\x86\Debug\BurgerOrder.pdb
+C:\Users\thieril\Documents\GitHub\ProgFundFINAL\BurgerOrder\BurgerOrder\obj\x86\Debug\BurgerOrder.exe
+C:\Users\thieril\Documents\GitHub\ProgFundFINAL\BurgerOrder\BurgerOrder\obj\x86\Debug\BurgerOrder.pdb
+C:\Users\thieril\Documents\GitHub\ProgFundFINAL\BurgerOrder\BurgerOrder\bin\Debug\BurgerOrder.exe
+C:\Users\thieril\Documents\GitHub\ProgFundFINAL\BurgerOrder\BurgerOrder\bin\Debug\BurgerOrder.pdb
+C:\Users\thieril\Documents\GitHub\ProgFundFINAL\BurgerOrder\BurgerOrder\obj\x86\Debug\Order.Order.resources
+C:\Users\thieril\Documents\GitHub\ProgFundFINAL\BurgerOrder\BurgerOrder\obj\x86\Debug\Order.Properties.Resources.resources
+C:\Users\thieril\Documents\GitHub\ProgFundFINAL\BurgerOrder\BurgerOrder\obj\x86\Debug\BurgerOrder.csproj.GenerateResource.Cache
+C:\Users\thieril\Documents\GitHub\ProgFundFINAL\BurgerOrder\BurgerOrder\obj\x86\Debug\BurgerOrder.csprojResolveAssemblyReference.cache
