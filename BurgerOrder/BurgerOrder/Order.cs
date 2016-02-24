@@ -78,6 +78,8 @@ namespace Order
             {
                 orderStep = "ordertype";
             }
+            btnNext.Visible = true;
+            btnPrevious.Enabled = true;
         }
 
 
@@ -86,19 +88,22 @@ namespace Order
             if (pnlLocation.Visible == true)
             {
                 orderStep = "location";
-
             }
+
+            btnNext.Visible = true;
+            btnPrevious.Enabled = true;
         }
 
         private void pnlBuild_VisibleChanged(object sender, EventArgs e)
         {
-            if (pnlLocation.Visible == true)
+            if (pnlBuild.Visible == true)
             {
                 orderStep = "build";
 
             }
 
             btnNext.Visible = false;
+            btnPrevious.Enabled = true;
         }
 
         private void pnlBun_VisibleChanged(object sender, EventArgs e)
@@ -111,6 +116,7 @@ namespace Order
                 if (optionsArray[0] == "")
                 {
                     btnNext.Enabled = true;
+                    btnPrevious.Enabled = true;
                 }
                 
             }
@@ -137,7 +143,7 @@ namespace Order
             if (pnlToppings.Visible == true)
             {
                 orderStep = "toppings";
-                btnNext.Enabled = false;//false so you must select type before moving forward
+                btnNext.Enabled = false;//false so you must select toppings before moving forward
 
                 if (optionsArray[2] == "")
                 {
@@ -162,6 +168,24 @@ namespace Order
             }
         }
 
+       
+        private void pnlSummary_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlSummary.Visible == true)
+            {
+                orderStep = "summary";
+                
+                {
+                    btnNext.Enabled = true;
+                    btnPrevious.Enabled = true;
+                }
+            }
+        }
+
+
+
+
+
 
         //PANEL < PREVIOUS > NEXT EVENTS happen on Previous button click
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -169,34 +193,44 @@ namespace Order
             switch (orderStep)
             {
 
-                case"orderType": //build or specialty
-                    pnlOrderType.Visible = false;
-                    pnlLocation.Visible= true;
+                case "location": // dine in or take out  //current panel                   
+                    pnlStart.Visible = true;  // panel moving to
+                    pnlLocation.Visible = false;  //curent pannel, need to move to previous
                     break;
 
-                case "build": //start
-                    pnlBun.Visible = false;
-                    pnlBuild.Visible = true;
+                case "orderType": //build or specialty //panel move to
+                    pnlLocation.Visible = true;
+                    pnlOrderType.Visible = false;                      
+                    break;
+
+                case "build": //start  
+                    pnlOrderType.Visible = true; 
+                    pnlBuild.Visible = false; 
                     break;
          
-                case "bun": //panel moving to 
-                    pnlCheese.Visible = false; //current panel , needs to go away and move backward
-                    pnlBun.Visible = true; // needs to become visible
+                case "bun": //current panel 
+                    pnlBuild.Visible = true; //curent pannel, need to move to previous
+                    pnlBun.Visible = false; // panel moving to
                     break;
 
-                case "cheese": //panel moving to 
-                    pnlBuild.Visible = false; //current panel, need to move backward
-                    pnlCheese.Visible = true; //panel want to move to
+                case "cheese": //current panel
+                    pnlBun.Visible = true; // panel move to
+                    pnlCheese.Visible = false; // panel moving from
                     break;
 
                 case "toppings": //panel moving to 
-                    pnlCheese.Visible = false; //current panel, need to move backward
-                    pnlToppings.Visible = true; //panel want to move to
+                    pnlCheese.Visible = true; //curent pannel, need to move to previous
+                    pnlToppings.Visible = false; // panel moving to
                     break;
 
                 case "sauce": //panel moving to 
-                    pnlToppings.Visible = false; //current panel, need to move backward
-                    pnlSauce.Visible = true; //panel want to move to
+                    pnlToppings.Visible = true; //curent pannel, need to move to previous
+                    pnlSauce.Visible = false; // panel moving to
+                    break;
+                    
+                case "summary":
+                    pnlSauce.Visible = true;
+                    pnlSummary.Visible = false;
                     break;
 
 
@@ -217,6 +251,12 @@ namespace Order
                     pnlBuild.Visible = false; //panel moving from
                     pnlBun.Visible = true; // panel moving to
                     break;
+
+                case "location":
+                    pnlLocation.Visible = false;
+                    pnlOrderType.Visible=true;
+                    break;
+
                 case "bun": //current panel
                     pnlBun.Visible = false; //panel moving from
                     btnNext.Enabled = false; //must make selection before proceeding
@@ -232,10 +272,14 @@ namespace Order
                     break;
 
                 case "sauce"://current panel
-                    pnlToppings.Visible = false; //panel moving from
+                    pnlSauce.Visible = false; //panel moving from
                     pnlSummary.Visible = true; //panel moving to
                     break;
 
+                case "summary"://current panel
+                    pnlComplete.Visible = true; //panel moving from
+                    pnlSummary.Visible = false; //panel moving to
+                    break;
 
                 default:
                     pnlStart.Visible = true;
@@ -311,7 +355,7 @@ namespace Order
         //5 PANEL BUN EVENTS
         private void btnWhite_Click(object sender, EventArgs e) //click event - requires a click action to load event
         {
-            optionsArray[0] = "whiteBun\n";
+            optionsArray[0] = "White Bun\n";
             lblStack.Text = optionsArray[0];
             //orderStep = "cheese";
             btnNext.Enabled = true;
@@ -320,7 +364,7 @@ namespace Order
 
         private void btnWheat_Click(object sender, EventArgs e)
         {
-            optionsArray[0] = "wheatBun\n";
+            optionsArray[0] = "Wheat Bun\n";
             lblStack.Text = optionsArray[0];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
@@ -328,7 +372,7 @@ namespace Order
 
         private void btnPotato_Click(object sender, EventArgs e)
         {
-            optionsArray[0] = "potatoBun\n";
+            optionsArray[0] = "Potato Bun\n";
             lblStack.Text = optionsArray[0];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
@@ -427,6 +471,9 @@ namespace Order
             btnPrevious.Enabled = true;
         }
 
+        
+
+
 
         //11 PANEL TOP NAV BUN BUTTON
         private void btnNavBun_Click(object sender, EventArgs e)
@@ -473,6 +520,8 @@ namespace Order
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
         }
+
+        
 
        
 

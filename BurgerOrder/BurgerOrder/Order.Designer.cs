@@ -68,6 +68,7 @@
             this.lblStack = new System.Windows.Forms.Label();
             this.lblOrderProgress = new System.Windows.Forms.Label();
             this.pnlBuild = new System.Windows.Forms.Panel();
+            this.lblBuild = new System.Windows.Forms.Label();
             this.btnBuildBegin = new System.Windows.Forms.Button();
             this.pnlSummary = new System.Windows.Forms.Panel();
             this.lblSummary = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@
             this.btnKetchup = new System.Windows.Forms.Button();
             this.lblSauce = new System.Windows.Forms.Label();
             this.pnlComplete = new System.Windows.Forms.Panel();
-            this.lblBuild = new System.Windows.Forms.Label();
             this.pnlStart.SuspendLayout();
             this.pnlLocation.SuspendLayout();
             this.pnlOrderType.SuspendLayout();
@@ -312,6 +312,7 @@
             this.pnlCheese.Name = "pnlCheese";
             this.pnlCheese.Size = new System.Drawing.Size(694, 336);
             this.pnlCheese.TabIndex = 5;
+            this.pnlCheese.VisibleChanged += new System.EventHandler(this.pnlCheese_VisibleChanged);
             // 
             // btnSwiss
             // 
@@ -525,7 +526,7 @@
             // 
             this.lblOrderProgress.AutoSize = true;
             this.lblOrderProgress.Font = new System.Drawing.Font("Calibri", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderProgress.Location = new System.Drawing.Point(55, 23);
+            this.lblOrderProgress.Location = new System.Drawing.Point(48, 23);
             this.lblOrderProgress.Name = "lblOrderProgress";
             this.lblOrderProgress.Size = new System.Drawing.Size(164, 29);
             this.lblOrderProgress.TabIndex = 0;
@@ -540,7 +541,16 @@
             this.pnlBuild.Name = "pnlBuild";
             this.pnlBuild.Size = new System.Drawing.Size(694, 336);
             this.pnlBuild.TabIndex = 8;
-            this.pnlBuild.VisibleChanged += new System.EventHandler(this.pnlBuild_VisibleChanged);
+            // 
+            // lblBuild
+            // 
+            this.lblBuild.AutoSize = true;
+            this.lblBuild.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuild.Location = new System.Drawing.Point(156, 49);
+            this.lblBuild.Name = "lblBuild";
+            this.lblBuild.Size = new System.Drawing.Size(420, 42);
+            this.lblBuild.TabIndex = 1;
+            this.lblBuild.Text = "Begin building your burger!";
             // 
             // btnBuildBegin
             // 
@@ -561,6 +571,7 @@
             this.pnlSummary.Name = "pnlSummary";
             this.pnlSummary.Size = new System.Drawing.Size(694, 336);
             this.pnlSummary.TabIndex = 1;
+            this.pnlSummary.VisibleChanged += new System.EventHandler(this.pnlSummary_VisibleChanged);
             // 
             // lblSummary
             // 
@@ -636,28 +647,18 @@
             this.pnlComplete.Size = new System.Drawing.Size(694, 336);
             this.pnlComplete.TabIndex = 2;
             // 
-            // lblBuild
-            // 
-            this.lblBuild.AutoSize = true;
-            this.lblBuild.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuild.Location = new System.Drawing.Point(179, 53);
-            this.lblBuild.Name = "lblBuild";
-            this.lblBuild.Size = new System.Drawing.Size(398, 42);
-            this.lblBuild.TabIndex = 1;
-            this.lblBuild.Text = "Begin building your order.";
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 657);
+            this.Controls.Add(this.pnlBun);
             this.Controls.Add(this.pnlBuild);
             this.Controls.Add(this.pnlSauce);
             this.Controls.Add(this.pnlToppings);
             this.Controls.Add(this.pnlStart);
             this.Controls.Add(this.pnlLocation);
             this.Controls.Add(this.pnlOrderType);
-            this.Controls.Add(this.pnlBun);
             this.Controls.Add(this.pnlCheese);
             this.Controls.Add(this.pnlSummary);
             this.Controls.Add(this.pnlComplete);
