@@ -516,7 +516,7 @@
             // 
             this.lblStack.AutoSize = true;
             this.lblStack.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStack.Location = new System.Drawing.Point(99, 68);
+            this.lblStack.Location = new System.Drawing.Point(48, 68);
             this.lblStack.Name = "lblStack";
             this.lblStack.Size = new System.Drawing.Size(63, 23);
             this.lblStack.TabIndex = 1;

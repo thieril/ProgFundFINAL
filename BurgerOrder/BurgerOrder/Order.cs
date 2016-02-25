@@ -52,6 +52,11 @@ namespace Order
             pnlSauce.Visible = false;
             pnlSummary.Visible = false;
             pnlComplete.Visible = false;
+            btnNavBun.Enabled = false;
+            btnNavCheese.Enabled = false;
+            btnNavSauce.Enabled = false;
+            btnNavTopping.Enabled = false;
+            
             
 
             lblStack.Text = "";
@@ -67,19 +72,12 @@ namespace Order
             if (pnlStart.Visible == true)
             {
                 orderStep = "start";
-
             }
-        }
 
-
-        private void pnlOrderType_VisibleChanged(object sender, EventArgs e)
-        {
-            if (pnlOrderType.Visible == true)
-            {
-                orderStep = "ordertype";
-            }
-            btnNext.Visible = true;
-            btnPrevious.Enabled = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
         }
 
 
@@ -92,18 +90,40 @@ namespace Order
 
             btnNext.Visible = true;
             btnPrevious.Enabled = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
+           
         }
 
+        private void pnlOrderType_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlOrderType.Visible == true)
+            {
+                orderStep = "ordertype";
+            }
+            btnNext.Visible = true;
+            btnPrevious.Enabled = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
+        }
+        
         private void pnlBuild_VisibleChanged(object sender, EventArgs e)
         {
             if (pnlBuild.Visible == true)
             {
                 orderStep = "build";
-
             }
 
-            btnNext.Visible = false;
+            btnNext.Visible = true;
             btnPrevious.Enabled = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
         }
 
         private void pnlBun_VisibleChanged(object sender, EventArgs e)
@@ -116,7 +136,10 @@ namespace Order
                 if (optionsArray[0] == "")
                 {
                     btnNext.Enabled = true;
-                    btnPrevious.Enabled = true;
+                    btnPrevious.Enabled = true;                    
+                    btnNavCheese.Enabled = true;
+                    btnNavSauce.Enabled = true;
+                    btnNavTopping.Enabled = true;
                 }
                 
             }
@@ -133,6 +156,9 @@ namespace Order
                 {
                     btnNext.Enabled = true;
                     btnPrevious.Enabled = true;
+                    btnNavBun.Enabled = true;
+                    btnNavSauce.Enabled = true;
+                    btnNavTopping.Enabled = true;
                 }
 
             }
@@ -149,6 +175,10 @@ namespace Order
                 {
                     btnNext.Enabled = true;
                     btnPrevious.Enabled = true;
+                    btnNavBun.Enabled = true;
+                    btnNavCheese.Enabled = true;
+                    btnNavSauce.Enabled = true;            
+
                 }
             }
         }
@@ -164,6 +194,9 @@ namespace Order
                 {
                     btnNext.Enabled = true;
                     btnPrevious.Enabled = true;
+                    btnNavBun.Enabled = true;
+                    btnNavCheese.Enabled = true;
+                    btnNavTopping.Enabled = true;
                 }
             }
         }
@@ -178,6 +211,10 @@ namespace Order
                 {
                     btnNext.Enabled = true;
                     btnPrevious.Enabled = true;
+                    btnNavBun.Enabled = true;
+                    btnNavCheese.Enabled = true;
+                    btnNavSauce.Enabled = true;
+                    btnNavTopping.Enabled = true;
                 }
             }
         }
@@ -187,23 +224,22 @@ namespace Order
 
 
 
-        //PANEL < PREVIOUS > NEXT EVENTS happen on Previous button click
+        //PANEL < PREVIOUS > NEXT EVENTS occur on Previous button click
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             switch (orderStep)
             {
-
                 case "location": // dine in or take out  //current panel                   
                     pnlStart.Visible = true;  // panel moving to
                     pnlLocation.Visible = false;  //curent pannel, need to move to previous
                     break;
 
-                case "orderType": //build or specialty //panel move to
+                case "orderType": //build or specialty //curent panel
                     pnlLocation.Visible = true;
                     pnlOrderType.Visible = false;                      
                     break;
 
-                case "build": //start  
+                case "build": //click to begin  
                     pnlOrderType.Visible = true; 
                     pnlBuild.Visible = false; 
                     break;
@@ -247,33 +283,43 @@ namespace Order
             switch (orderStep)
             {
 
+                case "location":
+                    pnlLocation.Visible = false;
+                    pnlOrderType.Visible = true;
+                    break;
+
+                case "orderType":                    
+                    pnlOrderType.Visible = false;
+                    pnlBuild.Visible = true;
+                    break;
+                
                 case "build"://current panel
                     pnlBuild.Visible = false; //panel moving from
                     pnlBun.Visible = true; // panel moving to
-                    break;
-
-                case "location":
-                    pnlLocation.Visible = false;
-                    pnlOrderType.Visible=true;
-                    break;
+                    break;               
 
                 case "bun": //current panel
                     pnlBun.Visible = false; //panel moving from
                     btnNext.Enabled = false; //must make selection before proceeding
                     pnlCheese.Visible = true;//panel moving to
                     break;
+
                 case "cheese":// current panel
                     pnlCheese.Visible = false; //panel moving from
                     pnlToppings.Visible = true;//panel moving to
+                    //btnNext.Enabled = false; //must make selection before proceeding
                     break;
+
                 case "toppings": // current panel
                     pnlToppings.Visible = false; //panel moving from
                     pnlSauce.Visible = true; //panel moving to
+                    //btnNext.Enabled = true; //must make selection before proceeding
                     break;
 
                 case "sauce"://current panel
                     pnlSauce.Visible = false; //panel moving from
                     pnlSummary.Visible = true; //panel moving to
+                    //btnNext.Enabled = false; //must make selection before proceeding
                     break;
 
                 case "summary"://current panel
@@ -297,6 +343,10 @@ namespace Order
             pnlTopNav.Visible = true;
             pnlStack.Visible = true;
             pnlPreviousNext.Visible = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
           
         }
 
@@ -305,11 +355,15 @@ namespace Order
         private void btnIn_Click(object sender, EventArgs e)
         {
             takeOut = false;
-            pnlLocation.Visible = false;
+            pnlLocation.Visible = false; //false because becomes previoius panel, need to move to next panel
             pnlOrderType.Visible = true;
             pnlPreviousNext.Visible = true;
             pnlTopNav.Visible = true;
             pnlStack.Visible = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
         }
 
         private void btnOut_Click(object sender, EventArgs e)
@@ -323,12 +377,15 @@ namespace Order
         //3 PANEL ORDER TYPE EVENTS
         private void btnBuild_Click(object sender, EventArgs e)
         {
-            pnlOrderType.Visible = false;//false because previoius panel, need to move forward
-            pnlBun.Visible = true;
+            pnlOrderType.Visible = false;//false because previoius panel, need to move to next panel           
             pnlBuild.Visible = true;
             pnlTopNav.Visible = true;
             pnlStack.Visible = true;
-            pnlPreviousNext.Visible = true;     
+            pnlPreviousNext.Visible = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
         }
 
         private void btnSpecialty_Click(object sender, EventArgs e)
@@ -357,9 +414,9 @@ namespace Order
         {
             optionsArray[0] = "White Bun\n";
             lblStack.Text = optionsArray[0];
-            //orderStep = "cheese";
             btnNext.Enabled = true;
-            btnPrevious.Enabled = true;            
+            btnPrevious.Enabled = true;
+            
         }
 
         private void btnWheat_Click(object sender, EventArgs e)
@@ -381,7 +438,7 @@ namespace Order
         //6 PANEL CHEESE EVENTS
         private void btnAmerican_Click(object sender, EventArgs e)
         {
-            optionsArray[1] = "AmericanCheese\n";
+            optionsArray[1] = "American Cheese\n";
             lblStack.Text += optionsArray[1];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
@@ -390,7 +447,7 @@ namespace Order
        
         private void btnCheddar_Click(object sender, EventArgs e)
         {
-            optionsArray[1] = "CheddarCheese\n";
+            optionsArray[1] = "Cheddar Cheese\n";
             lblStack.Text += optionsArray[1];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
@@ -398,7 +455,7 @@ namespace Order
 
         private void btnSwiss_Click(object sender, EventArgs e)
         {
-            optionsArray[1] = "SwissCheese\n";
+            optionsArray[1] = "Swiss Cheese\n";
             lblStack.Text += optionsArray[1];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
@@ -406,7 +463,7 @@ namespace Order
 
         private void btnNoCheese_Click(object sender, EventArgs e)
         {
-            optionsArray[1] = "NoCheese\n";
+            optionsArray[1] = "No Cheese\n";
             lblStack.Text += optionsArray[1];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
@@ -484,6 +541,10 @@ namespace Order
             pnlStack.Visible = true;
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
+            btnNavBun.Enabled = true;
 
         }
 
@@ -497,6 +558,10 @@ namespace Order
             pnlStack.Visible = true;
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+            btnNavBun.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
+            btnNavCheese.Enabled = true;
         }
 
         // 11 PANEL TOP NAV TOPPING BUTTON
@@ -508,6 +573,10 @@ namespace Order
             pnlStack.Visible = true;
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavSauce.Enabled = true;
+            btnNavTopping.Enabled = true;
         }
 
         // 11 PANEL TOP NAV SAUCE BUTTON
@@ -519,6 +588,10 @@ namespace Order
             pnlStack.Visible = true;
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+            btnNavBun.Enabled = true;
+            btnNavCheese.Enabled = true;
+            btnNavTopping.Enabled = true;
+            btnNavSauce.Enabled = true;
         }
 
         
