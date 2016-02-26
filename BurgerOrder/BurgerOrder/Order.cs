@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Order
+namespace BurgerOrder
 {
     public partial class Order : Form
     {
@@ -16,14 +16,14 @@ namespace Order
 
         bool takeOut;
         
-        int pattyNum;
+        //int pattyNum;
         string orderStep; //keeps track of current panel
 
-        string bunType;
-        string cheeseType;
+        //string bunType;
+        //string cheeseType;
         string[] toppings = new string[] {};
         string[] sauce = new string[] {}; //{} allow user input to populate when you do not know length of array
-        string[] optionsArray = new string[4]; //lists what has been selected/ordered in the build
+        public string[] optionsArray = new string[4]; //lists what has been selected/ordered in the build
 
 
 
@@ -323,8 +323,8 @@ namespace Order
                     break;
 
                 case "summary"://current panel
-                    pnlComplete.Visible = true; //panel moving from
-                    pnlSummary.Visible = false; //panel moving to
+                    pnlComplete.Visible = true; //panel moving to
+                    pnlSummary.Visible = false; //panel moving from
                     break;
 
                 default:
@@ -412,125 +412,192 @@ namespace Order
         //5 PANEL BUN EVENTS
         private void btnWhite_Click(object sender, EventArgs e) //click event - requires a click action to load event
         {
-            optionsArray[0] = "White Bun\n";
-            lblStack.Text = optionsArray[0];
+            //optionsArray[0] = "White Bun\n";
+            //lblStack.Text = optionsArray[0];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string bunType = Bun.createBun("whiteBun\n");
+            optionsArray[0] = bunType;
+            lblStack.Text = optionsArray[0];
             
         }
 
-        private void btnWheat_Click(object sender, EventArgs e)
+       private void btnWheat_Click(object sender, EventArgs e)
         {
-            optionsArray[0] = "Wheat Bun\n";
-            lblStack.Text = optionsArray[0];
+            //optionsArray[0] = "Wheat Bun\n";
+            //lblStack.Text = optionsArray[0];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string bunType = Bun.createBun("wheatBun\n");
+            optionsArray[0] = bunType;
+            lblStack.Text = optionsArray[0];
         }
 
         private void btnPotato_Click(object sender, EventArgs e)
         {
-            optionsArray[0] = "Potato Bun\n";
-            lblStack.Text = optionsArray[0];
+            //optionsArray[0] = "Potato Bun\n";
+            //lblStack.Text = optionsArray[0];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+            string bunType = Bun.createBun("potatoBun\n");
+            optionsArray[0] = bunType;
+            lblStack.Text = optionsArray[0];
         }
 
         //6 PANEL CHEESE EVENTS
         private void btnAmerican_Click(object sender, EventArgs e)
         {
-            optionsArray[1] = "American Cheese\n";
-            lblStack.Text += optionsArray[1];
+            //optionsArray[1] = "American Cheese\n";
+            //lblStack.Text += optionsArray[1];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string cheeseType = Cheese.createCheese("American\n");
+            optionsArray[1] = cheeseType;
+            lblStack.Text += optionsArray[1];
         }
 
        
         private void btnCheddar_Click(object sender, EventArgs e)
         {
-            optionsArray[1] = "Cheddar Cheese\n";
-            lblStack.Text += optionsArray[1];
+            //optionsArray[1] = "Cheddar Cheese\n";
+            //lblStack.Text += optionsArray[1];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string cheeseType = Cheese.createCheese("Cheddar\n");
+            optionsArray[1] = cheeseType;
+            lblStack.Text += optionsArray[1];
         }
 
         private void btnSwiss_Click(object sender, EventArgs e)
         {
-            optionsArray[1] = "Swiss Cheese\n";
-            lblStack.Text += optionsArray[1];
+            //optionsArray[1] = "Swiss Cheese\n";
+            //lblStack.Text += optionsArray[1];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string cheeseType = Cheese.createCheese("Swiss\n");
+            optionsArray[1] = cheeseType;
+            lblStack.Text += optionsArray[1];
         }
 
         private void btnNoCheese_Click(object sender, EventArgs e)
         {
-            optionsArray[1] = "No Cheese\n";
-            lblStack.Text += optionsArray[1];
+            //optionsArray[1] = "No Cheese\n";
+            //lblStack.Text += optionsArray[1];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string cheeseType = Cheese.createCheese("No Cheese\n");
+            optionsArray[1] = cheeseType;
+            lblStack.Text += optionsArray[1];
         }
 
         //7 PANEL TOPPINGS BUTTON EVENTS
         private void btnLettuce_Click(object sender, EventArgs e)
         {
-            optionsArray[2] = "Lettuce\n";
-            lblStack.Text += optionsArray[2];
+            //optionsArray[2] = "Lettuce\n";
+            //lblStack.Text += optionsArray[2];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string toppings = Toppings.createToppings("Lettuce\n");
+            optionsArray[2] = toppings;
+            lblStack.Text += optionsArray[2];
         }
 
         private void btnOnion_Click(object sender, EventArgs e)
         {
-            optionsArray[2] = "Onion\n";
-            lblStack.Text += optionsArray[2];
+            //optionsArray[2] = "Onion\n";
+            //lblStack.Text += optionsArray[2];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string toppings = Toppings.createToppings("Onion\n");
+            optionsArray[2] = toppings;
+            lblStack.Text += optionsArray[2];
         }
 
         private void btnTomatoe_Click(object sender, EventArgs e)
         {
-            optionsArray[2] = "Tomato\n";
-            lblStack.Text += optionsArray[2];
+            //optionsArray[2] = "Tomato\n";
+            //lblStack.Text += optionsArray[2];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string toppings = Toppings.createToppings("Tomato\n");
+            optionsArray[2] = toppings;
+            lblStack.Text += optionsArray[2];
         }
 
         private void btnPickle_Click(object sender, EventArgs e)
         {
-            optionsArray[2] = "Pickle\n";
-            lblStack.Text += optionsArray[2];
+            //optionsArray[2] = "Pickle\n";
+            //lblStack.Text += optionsArray[2];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string toppings = Toppings.createToppings("Pickle\n");
+            optionsArray[2] = toppings;
+            lblStack.Text += optionsArray[2];
         }
         
         // 8 PANEL SAUCE BUTTONS
         private void btnKetchup_Click(object sender, EventArgs e)
         {
-            optionsArray[3] = "Ketchup\n";
-            lblStack.Text += optionsArray[3];
+            //optionsArray[3] = "Ketchup\n";
+            //lblStack.Text += optionsArray[3];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string sauce = Sauce.createSauce("Ketchup\n");
+            optionsArray[3] = sauce;
+            lblStack.Text += optionsArray[3];
         }
 
         private void btnMustard_Click(object sender, EventArgs e)
         {
-            optionsArray[3] = "Mustard\n";
-            lblStack.Text += optionsArray[3];
+            //optionsArray[3] = "Mustard\n";
+            //lblStack.Text += optionsArray[3];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string sauce = Sauce.createSauce("Mustard\n");
+            optionsArray[3] = sauce;
+            lblStack.Text += optionsArray[3];
         }
 
 
         private void btnMayo_Click(object sender, EventArgs e)
         {
-            optionsArray[3] = "Mayo\n";
-            lblStack.Text += optionsArray[3];
+            //optionsArray[3] = "Mayo\n";
+            //lblStack.Text += optionsArray[3];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
+
+            string sauce = Sauce.createSauce("Mayo\n");
+            optionsArray[3] = sauce;
+            lblStack.Text += optionsArray[3];
         }
 
-        
 
 
+        //9 PANEL SUMMARY EVENTS
+
+        private void btnYesSummary_Click(object sender, EventArgs e)
+        {
+            pnlComplete.Visible = true;
+            pnlSummary.Visible = false;
+        }
+
+        private void btnNoSummary_Click(object sender, EventArgs e)
+        {
+            pnlBuild.Visible = true;
+            pnlSummary.Visible = false;
+        }
 
         //11 PANEL TOP NAV BUN BUTTON
         private void btnNavBun_Click(object sender, EventArgs e)
@@ -593,6 +660,15 @@ namespace Order
             btnNavTopping.Enabled = true;
             btnNavSauce.Enabled = true;
         }
+
+        private void buildOptions()
+        {
+            lblStack.Text = string.Join("\n", optionsArray);
+        }
+
+        
+
+        
 
         
 

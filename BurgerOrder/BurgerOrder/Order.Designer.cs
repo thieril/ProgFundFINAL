@@ -1,4 +1,4 @@
-﻿namespace Order
+﻿namespace BurgerOrder
 {
     partial class Order
     {
@@ -78,6 +78,10 @@
             this.btnKetchup = new System.Windows.Forms.Button();
             this.lblSauce = new System.Windows.Forms.Label();
             this.pnlComplete = new System.Windows.Forms.Panel();
+            this.btnYesSummary = new System.Windows.Forms.Button();
+            this.btnNoSummary = new System.Windows.Forms.Button();
+            this.lblSumCorrect = new System.Windows.Forms.Label();
+            this.lblComplete = new System.Windows.Forms.Label();
             this.pnlStart.SuspendLayout();
             this.pnlLocation.SuspendLayout();
             this.pnlOrderType.SuspendLayout();
@@ -90,6 +94,7 @@
             this.pnlBuild.SuspendLayout();
             this.pnlSummary.SuspendLayout();
             this.pnlSauce.SuspendLayout();
+            this.pnlComplete.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlStart
@@ -566,6 +571,9 @@
             // pnlSummary
             // 
             this.pnlSummary.BackColor = System.Drawing.Color.LightCoral;
+            this.pnlSummary.Controls.Add(this.lblSumCorrect);
+            this.pnlSummary.Controls.Add(this.btnNoSummary);
+            this.pnlSummary.Controls.Add(this.btnYesSummary);
             this.pnlSummary.Controls.Add(this.lblSummary);
             this.pnlSummary.Location = new System.Drawing.Point(297, 105);
             this.pnlSummary.Name = "pnlSummary";
@@ -642,16 +650,61 @@
             // pnlComplete
             // 
             this.pnlComplete.BackColor = System.Drawing.Color.LightCoral;
+            this.pnlComplete.Controls.Add(this.lblComplete);
+            this.pnlComplete.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlComplete.Location = new System.Drawing.Point(297, 105);
             this.pnlComplete.Name = "pnlComplete";
             this.pnlComplete.Size = new System.Drawing.Size(694, 336);
             this.pnlComplete.TabIndex = 2;
+            // 
+            // btnYesSummary
+            // 
+            this.btnYesSummary.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYesSummary.Location = new System.Drawing.Point(191, 181);
+            this.btnYesSummary.Name = "btnYesSummary";
+            this.btnYesSummary.Size = new System.Drawing.Size(105, 47);
+            this.btnYesSummary.TabIndex = 1;
+            this.btnYesSummary.Text = "Yes";
+            this.btnYesSummary.UseVisualStyleBackColor = true;
+            this.btnYesSummary.Click += new System.EventHandler(this.btnYesSummary_Click);
+            // 
+            // btnNoSummary
+            // 
+            this.btnNoSummary.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNoSummary.Location = new System.Drawing.Point(426, 181);
+            this.btnNoSummary.Name = "btnNoSummary";
+            this.btnNoSummary.Size = new System.Drawing.Size(105, 47);
+            this.btnNoSummary.TabIndex = 2;
+            this.btnNoSummary.Text = "No";
+            this.btnNoSummary.UseVisualStyleBackColor = true;
+            this.btnNoSummary.Click += new System.EventHandler(this.btnNoSummary_Click);
+            // 
+            // lblSumCorrect
+            // 
+            this.lblSumCorrect.AutoSize = true;
+            this.lblSumCorrect.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSumCorrect.Location = new System.Drawing.Point(189, 103);
+            this.lblSumCorrect.Name = "lblSumCorrect";
+            this.lblSumCorrect.Size = new System.Drawing.Size(329, 33);
+            this.lblSumCorrect.TabIndex = 3;
+            this.lblSumCorrect.Text = "Would you like to continue?";
+            // 
+            // lblComplete
+            // 
+            this.lblComplete.AutoSize = true;
+            this.lblComplete.Location = new System.Drawing.Point(176, 74);
+            this.lblComplete.Name = "lblComplete";
+            this.lblComplete.Size = new System.Drawing.Size(355, 39);
+            this.lblComplete.TabIndex = 0;
+            this.lblComplete.Text = "Thank you for your order!";
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 657);
+            this.Controls.Add(this.pnlComplete);
+            this.Controls.Add(this.pnlSummary);
             this.Controls.Add(this.pnlBun);
             this.Controls.Add(this.pnlBuild);
             this.Controls.Add(this.pnlSauce);
@@ -660,8 +713,6 @@
             this.Controls.Add(this.pnlLocation);
             this.Controls.Add(this.pnlOrderType);
             this.Controls.Add(this.pnlCheese);
-            this.Controls.Add(this.pnlSummary);
-            this.Controls.Add(this.pnlComplete);
             this.Controls.Add(this.pnlTopNav);
             this.Controls.Add(this.pnlPreviousNext);
             this.Controls.Add(this.pnlStack);
@@ -690,6 +741,8 @@
             this.pnlSummary.PerformLayout();
             this.pnlSauce.ResumeLayout(false);
             this.pnlSauce.PerformLayout();
+            this.pnlComplete.ResumeLayout(false);
+            this.pnlComplete.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -746,6 +799,10 @@
         private System.Windows.Forms.Label lblSauce;
         private System.Windows.Forms.Label lblSummary;
         private System.Windows.Forms.Label lblBuild;
+        private System.Windows.Forms.Label lblSumCorrect;
+        private System.Windows.Forms.Button btnNoSummary;
+        private System.Windows.Forms.Button btnYesSummary;
+        private System.Windows.Forms.Label lblComplete;
 
     }
 }
