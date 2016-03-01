@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.pnlStart = new System.Windows.Forms.Panel();
             this.lblStart = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
@@ -71,6 +72,11 @@
             this.lblBuild = new System.Windows.Forms.Label();
             this.btnBuildBegin = new System.Windows.Forms.Button();
             this.pnlSummary = new System.Windows.Forms.Panel();
+            this.lblSumOrder = new System.Windows.Forms.Label();
+            this.lblSumLocation = new System.Windows.Forms.Label();
+            this.lblSumCorrect = new System.Windows.Forms.Label();
+            this.btnNoSummary = new System.Windows.Forms.Button();
+            this.btnYesSummary = new System.Windows.Forms.Button();
             this.lblSummary = new System.Windows.Forms.Label();
             this.pnlSauce = new System.Windows.Forms.Panel();
             this.btnMayo = new System.Windows.Forms.Button();
@@ -78,10 +84,16 @@
             this.btnKetchup = new System.Windows.Forms.Button();
             this.lblSauce = new System.Windows.Forms.Label();
             this.pnlComplete = new System.Windows.Forms.Panel();
-            this.btnYesSummary = new System.Windows.Forms.Button();
-            this.btnNoSummary = new System.Windows.Forms.Button();
-            this.lblSumCorrect = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnNewOrder = new System.Windows.Forms.Button();
+            this.lblEnjoyMeal = new System.Windows.Forms.Label();
             this.lblComplete = new System.Windows.Forms.Label();
+            this.pnlSpecialty = new System.Windows.Forms.Panel();
+            this.btnChsBurger = new System.Windows.Forms.Button();
+            this.btnVeggie = new System.Windows.Forms.Button();
+            this.btnBigMac = new System.Windows.Forms.Button();
+            this.lblSpeciality = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlStart.SuspendLayout();
             this.pnlLocation.SuspendLayout();
             this.pnlOrderType.SuspendLayout();
@@ -95,6 +107,9 @@
             this.pnlSummary.SuspendLayout();
             this.pnlSauce.SuspendLayout();
             this.pnlComplete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlSpecialty.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlStart
@@ -571,6 +586,9 @@
             // pnlSummary
             // 
             this.pnlSummary.BackColor = System.Drawing.Color.LightCoral;
+            this.pnlSummary.Controls.Add(this.pictureBox2);
+            this.pnlSummary.Controls.Add(this.lblSumOrder);
+            this.pnlSummary.Controls.Add(this.lblSumLocation);
             this.pnlSummary.Controls.Add(this.lblSumCorrect);
             this.pnlSummary.Controls.Add(this.btnNoSummary);
             this.pnlSummary.Controls.Add(this.btnYesSummary);
@@ -581,13 +599,65 @@
             this.pnlSummary.TabIndex = 1;
             this.pnlSummary.VisibleChanged += new System.EventHandler(this.pnlSummary_VisibleChanged);
             // 
+            // lblSumOrder
+            // 
+            this.lblSumOrder.AutoSize = true;
+            this.lblSumOrder.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSumOrder.Location = new System.Drawing.Point(26, 133);
+            this.lblSumOrder.Name = "lblSumOrder";
+            this.lblSumOrder.Size = new System.Drawing.Size(30, 23);
+            this.lblSumOrder.TabIndex = 5;
+            this.lblSumOrder.Text = "{  }";
+            // 
+            // lblSumLocation
+            // 
+            this.lblSumLocation.AutoSize = true;
+            this.lblSumLocation.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSumLocation.Location = new System.Drawing.Point(26, 98);
+            this.lblSumLocation.Name = "lblSumLocation";
+            this.lblSumLocation.Size = new System.Drawing.Size(22, 23);
+            this.lblSumLocation.TabIndex = 4;
+            this.lblSumLocation.Text = "[]";
+            // 
+            // lblSumCorrect
+            // 
+            this.lblSumCorrect.AutoSize = true;
+            this.lblSumCorrect.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSumCorrect.Location = new System.Drawing.Point(400, 60);
+            this.lblSumCorrect.Name = "lblSumCorrect";
+            this.lblSumCorrect.Size = new System.Drawing.Size(277, 29);
+            this.lblSumCorrect.TabIndex = 3;
+            this.lblSumCorrect.Text = "Continue with your order?";
+            // 
+            // btnNoSummary
+            // 
+            this.btnNoSummary.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNoSummary.Location = new System.Drawing.Point(552, 114);
+            this.btnNoSummary.Name = "btnNoSummary";
+            this.btnNoSummary.Size = new System.Drawing.Size(105, 47);
+            this.btnNoSummary.TabIndex = 2;
+            this.btnNoSummary.Text = "No";
+            this.btnNoSummary.UseVisualStyleBackColor = true;
+            this.btnNoSummary.Click += new System.EventHandler(this.btnNoSummary_Click);
+            // 
+            // btnYesSummary
+            // 
+            this.btnYesSummary.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYesSummary.Location = new System.Drawing.Point(427, 114);
+            this.btnYesSummary.Name = "btnYesSummary";
+            this.btnYesSummary.Size = new System.Drawing.Size(105, 47);
+            this.btnYesSummary.TabIndex = 1;
+            this.btnYesSummary.Text = "Yes";
+            this.btnYesSummary.UseVisualStyleBackColor = true;
+            this.btnYesSummary.Click += new System.EventHandler(this.btnYesSummary_Click);
+            // 
             // lblSummary
             // 
             this.lblSummary.AutoSize = true;
-            this.lblSummary.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSummary.Location = new System.Drawing.Point(156, 35);
+            this.lblSummary.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSummary.Location = new System.Drawing.Point(26, 60);
             this.lblSummary.Name = "lblSummary";
-            this.lblSummary.Size = new System.Drawing.Size(394, 42);
+            this.lblSummary.Size = new System.Drawing.Size(270, 29);
             this.lblSummary.TabIndex = 0;
             this.lblSummary.Text = "Please Review Your Order";
             // 
@@ -650,69 +720,143 @@
             // pnlComplete
             // 
             this.pnlComplete.BackColor = System.Drawing.Color.LightCoral;
+            this.pnlComplete.Controls.Add(this.pictureBox1);
+            this.pnlComplete.Controls.Add(this.btnNewOrder);
+            this.pnlComplete.Controls.Add(this.lblEnjoyMeal);
             this.pnlComplete.Controls.Add(this.lblComplete);
             this.pnlComplete.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlComplete.Location = new System.Drawing.Point(297, 105);
             this.pnlComplete.Name = "pnlComplete";
             this.pnlComplete.Size = new System.Drawing.Size(694, 336);
             this.pnlComplete.TabIndex = 2;
+            this.pnlComplete.VisibleChanged += new System.EventHandler(this.pnlComplete_VisibleChanged);
             // 
-            // btnYesSummary
+            // pictureBox1
             // 
-            this.btnYesSummary.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYesSummary.Location = new System.Drawing.Point(191, 181);
-            this.btnYesSummary.Name = "btnYesSummary";
-            this.btnYesSummary.Size = new System.Drawing.Size(105, 47);
-            this.btnYesSummary.TabIndex = 1;
-            this.btnYesSummary.Text = "Yes";
-            this.btnYesSummary.UseVisualStyleBackColor = true;
-            this.btnYesSummary.Click += new System.EventHandler(this.btnYesSummary_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(258, 223);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(147, 103);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
-            // btnNoSummary
+            // btnNewOrder
             // 
-            this.btnNoSummary.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNoSummary.Location = new System.Drawing.Point(426, 181);
-            this.btnNoSummary.Name = "btnNoSummary";
-            this.btnNoSummary.Size = new System.Drawing.Size(105, 47);
-            this.btnNoSummary.TabIndex = 2;
-            this.btnNoSummary.Text = "No";
-            this.btnNoSummary.UseVisualStyleBackColor = true;
-            this.btnNoSummary.Click += new System.EventHandler(this.btnNoSummary_Click);
+            this.btnNewOrder.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewOrder.Location = new System.Drawing.Point(264, 128);
+            this.btnNewOrder.Name = "btnNewOrder";
+            this.btnNewOrder.Size = new System.Drawing.Size(135, 79);
+            this.btnNewOrder.TabIndex = 2;
+            this.btnNewOrder.Text = "Begin New Order";
+            this.btnNewOrder.UseVisualStyleBackColor = true;
+            this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
-            // lblSumCorrect
+            // lblEnjoyMeal
             // 
-            this.lblSumCorrect.AutoSize = true;
-            this.lblSumCorrect.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSumCorrect.Location = new System.Drawing.Point(189, 103);
-            this.lblSumCorrect.Name = "lblSumCorrect";
-            this.lblSumCorrect.Size = new System.Drawing.Size(329, 33);
-            this.lblSumCorrect.TabIndex = 3;
-            this.lblSumCorrect.Text = "Would you like to continue?";
+            this.lblEnjoyMeal.AutoSize = true;
+            this.lblEnjoyMeal.Location = new System.Drawing.Point(211, 77);
+            this.lblEnjoyMeal.Name = "lblEnjoyMeal";
+            this.lblEnjoyMeal.Size = new System.Drawing.Size(240, 39);
+            this.lblEnjoyMeal.TabIndex = 1;
+            this.lblEnjoyMeal.Text = "Enjoy your meal!";
             // 
             // lblComplete
             // 
             this.lblComplete.AutoSize = true;
-            this.lblComplete.Location = new System.Drawing.Point(176, 74);
+            this.lblComplete.Location = new System.Drawing.Point(156, 23);
             this.lblComplete.Name = "lblComplete";
-            this.lblComplete.Size = new System.Drawing.Size(355, 39);
+            this.lblComplete.Size = new System.Drawing.Size(351, 39);
             this.lblComplete.TabIndex = 0;
-            this.lblComplete.Text = "Thank you for your order!";
+            this.lblComplete.Text = "Thank you for your order.";
+            // 
+            // pnlSpecialty
+            // 
+            this.pnlSpecialty.BackColor = System.Drawing.Color.LightCoral;
+            this.pnlSpecialty.Controls.Add(this.btnChsBurger);
+            this.pnlSpecialty.Controls.Add(this.btnVeggie);
+            this.pnlSpecialty.Controls.Add(this.btnBigMac);
+            this.pnlSpecialty.Controls.Add(this.lblSpeciality);
+            this.pnlSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.pnlSpecialty.Location = new System.Drawing.Point(297, 105);
+            this.pnlSpecialty.Name = "pnlSpecialty";
+            this.pnlSpecialty.Size = new System.Drawing.Size(694, 336);
+            this.pnlSpecialty.TabIndex = 1;
+            this.pnlSpecialty.VisibleChanged += new System.EventHandler(this.pnlSpecialty_VisibleChanged);
+            // 
+            // btnChsBurger
+            // 
+            this.btnChsBurger.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChsBurger.ForeColor = System.Drawing.Color.Black;
+            this.btnChsBurger.Location = new System.Drawing.Point(304, 145);
+            this.btnChsBurger.Name = "btnChsBurger";
+            this.btnChsBurger.Size = new System.Drawing.Size(93, 72);
+            this.btnChsBurger.TabIndex = 3;
+            this.btnChsBurger.Text = "Cheese Burger";
+            this.btnChsBurger.UseVisualStyleBackColor = true;
+            this.btnChsBurger.Click += new System.EventHandler(this.btnChsBurger_Click);
+            // 
+            // btnVeggie
+            // 
+            this.btnVeggie.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVeggie.ForeColor = System.Drawing.Color.Black;
+            this.btnVeggie.Location = new System.Drawing.Point(116, 145);
+            this.btnVeggie.Name = "btnVeggie";
+            this.btnVeggie.Size = new System.Drawing.Size(93, 72);
+            this.btnVeggie.TabIndex = 2;
+            this.btnVeggie.Text = "VeggieBurger";
+            this.btnVeggie.UseVisualStyleBackColor = true;
+            this.btnVeggie.Click += new System.EventHandler(this.btnVeggie_Click);
+            // 
+            // btnBigMac
+            // 
+            this.btnBigMac.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBigMac.ForeColor = System.Drawing.Color.Black;
+            this.btnBigMac.Location = new System.Drawing.Point(492, 145);
+            this.btnBigMac.Name = "btnBigMac";
+            this.btnBigMac.Size = new System.Drawing.Size(93, 72);
+            this.btnBigMac.TabIndex = 1;
+            this.btnBigMac.Text = "Big Mac";
+            this.btnBigMac.UseVisualStyleBackColor = true;
+            this.btnBigMac.Click += new System.EventHandler(this.btnBigMac_Click);
+            // 
+            // lblSpeciality
+            // 
+            this.lblSpeciality.AutoSize = true;
+            this.lblSpeciality.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpeciality.ForeColor = System.Drawing.Color.Black;
+            this.lblSpeciality.Location = new System.Drawing.Point(174, 50);
+            this.lblSpeciality.Name = "lblSpeciality";
+            this.lblSpeciality.Size = new System.Drawing.Size(357, 39);
+            this.lblSpeciality.TabIndex = 0;
+            this.lblSpeciality.Text = "Please select your burger:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(470, 191);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(137, 106);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 657);
-            this.Controls.Add(this.pnlComplete);
             this.Controls.Add(this.pnlSummary);
-            this.Controls.Add(this.pnlBun);
-            this.Controls.Add(this.pnlBuild);
-            this.Controls.Add(this.pnlSauce);
-            this.Controls.Add(this.pnlToppings);
+            this.Controls.Add(this.pnlComplete);
             this.Controls.Add(this.pnlStart);
             this.Controls.Add(this.pnlLocation);
             this.Controls.Add(this.pnlOrderType);
+            this.Controls.Add(this.pnlBuild);
+            this.Controls.Add(this.pnlSpecialty);
+            this.Controls.Add(this.pnlBun);
             this.Controls.Add(this.pnlCheese);
+            this.Controls.Add(this.pnlToppings);
+            this.Controls.Add(this.pnlSauce);
             this.Controls.Add(this.pnlTopNav);
             this.Controls.Add(this.pnlPreviousNext);
             this.Controls.Add(this.pnlStack);
@@ -743,6 +887,10 @@
             this.pnlSauce.PerformLayout();
             this.pnlComplete.ResumeLayout(false);
             this.pnlComplete.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlSpecialty.ResumeLayout(false);
+            this.pnlSpecialty.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -803,6 +951,17 @@
         private System.Windows.Forms.Button btnNoSummary;
         private System.Windows.Forms.Button btnYesSummary;
         private System.Windows.Forms.Label lblComplete;
+        private System.Windows.Forms.Panel pnlSpecialty;
+        private System.Windows.Forms.Button btnChsBurger;
+        private System.Windows.Forms.Button btnVeggie;
+        private System.Windows.Forms.Button btnBigMac;
+        private System.Windows.Forms.Label lblSpeciality;
+        private System.Windows.Forms.Label lblEnjoyMeal;
+        private System.Windows.Forms.Button btnNewOrder;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblSumOrder;
+        private System.Windows.Forms.Label lblSumLocation;
+        private System.Windows.Forms.PictureBox pictureBox2;
 
     }
 }
