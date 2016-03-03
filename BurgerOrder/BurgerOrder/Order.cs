@@ -204,6 +204,7 @@ namespace BurgerOrder
                     btnNavSauce.Enabled = true;
                     btnNavTopping.Enabled = true;
                     lblStack.Text = optionsArray[4] = "";
+                    lblSumOrder.Text += optionsArray[4] = "";
                 }
             }
         }
@@ -215,12 +216,14 @@ namespace BurgerOrder
                 orderStep = "complete";
 
                 {
-                    btnNext.Visible = false;
+                    btnNext.Visible = true;
                     btnPrevious.Enabled = true;
                     btnNavBun.Enabled = true;
                     btnNavCheese.Enabled = true;
                     btnNavSauce.Enabled = true;
                     btnNavTopping.Enabled = true;
+                    lblStack.Text = optionsArray[4] = "";
+                    lblSumOrder.Text += optionsArray[4] = "";
                 }
             }
         }
@@ -620,7 +623,7 @@ namespace BurgerOrder
             lblStack.Text += optionsArray[4];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
-            lblSumOrder.Text = optionsArray[4];
+            lblSumOrder.Text += optionsArray[4];
 
         }
 
@@ -630,7 +633,7 @@ namespace BurgerOrder
             lblStack.Text += optionsArray[4];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
-            lblSumOrder.Text = optionsArray[4];
+            lblSumOrder.Text += optionsArray[4];
         }
 
         private void btnBigMac_Click(object sender, EventArgs e)
@@ -639,7 +642,7 @@ namespace BurgerOrder
             lblStack.Text += optionsArray[4];
             btnNext.Enabled = true;
             btnPrevious.Enabled = true;
-            lblSumOrder.Text = optionsArray[4];
+            lblSumOrder.Text += optionsArray[4];
         }
        
 
@@ -651,6 +654,8 @@ namespace BurgerOrder
         {
             pnlComplete.Visible = true;
             pnlSummary.Visible = false;
+            lblStack.Text = optionsArray[4] = "";
+            lblSumOrder.Text = optionsArray[4] = "";
             
         }
 
@@ -659,6 +664,7 @@ namespace BurgerOrder
             pnlStart.Visible = true;
             pnlSummary.Visible = false;
             lblStack.Text = optionsArray [4] = "";
+            lblSumOrder.Text = optionsArray[4] = "";
         }
 
         // 13 PANEL COMPLETE EVENTS
@@ -666,7 +672,9 @@ namespace BurgerOrder
         {
             pnlStart.Visible = true;
             pnlComplete.Visible = false;
-            lblStack.Text = optionsArray[4] = ""; 
+            lblStack.Text = optionsArray[4] = "";
+            lblSumOrder.Text = optionsArray[4] = "";
+
         }
        
 
@@ -758,49 +766,5 @@ namespace BurgerOrder
         {
             lblStack.Text = string.Join("\n", optionsArray);
         }
-
-        
-
-        
-
-        
-
-        
-
-      
-
-        
-     
-
-       
-
-        
-
-        
-
-        
-
-       
-
-       
-
-        
-
-        
-        
-
-
-
-
-
-
-        
-
-       
-
-
-
-
-
     }
 }
